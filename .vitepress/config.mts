@@ -47,8 +47,8 @@ export default withMermaid(
       returnToTopLabel: '맨 위로',
       darkModeSwitchLabel: '테마',
       footer: {
-        message: '정본은 두 레포의 docs/와 .planning/이고, 이 사이트는 그 요약입니다.',
-        copyright: 'gold-wrestling · minsu-zip',
+        message: '이 사이트의 수치와 결정 기록은 gold-wrestling-fe · gold-wrestling-be 레포의 문서를 기준으로 합니다.',
+        copyright: '© 2026 minsu-zip',
       },
     },
     mermaid: {
