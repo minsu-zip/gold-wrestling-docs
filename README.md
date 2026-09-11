@@ -12,5 +12,4 @@ pnpm docs:build
 pnpm docs:preview
 ```
 
-`tech/policies.md`·`glossary.md`·`error-codes.md`·`decisions.md`는 BE 레포 `docs/`에서 이관한 사본이다.
-원본이 바뀌면 다시 복사한다. 스크린샷 촬영 목록은 `CAPTURE-LIST.md`.
+홈 랜딩은 `.vitepress/theme/Landing.vue`. 스크린샷 촬영 목록은 `CAPTURE-LIST.md`.
