@@ -26,10 +26,24 @@
 | M10 | 데스크탑 시간표 | 주간 그리드 | PNG 720 | public/shots/schedule-desktop.png | 미촬영 |
 
 홈 데모 GIF(회원): M1 → M4 → M5 → M6 → M7을 한 흐름으로 15초. 파일명 `public/demo-member.gif`.
+촬영 시점: **FE Phase 11(검증) 종료 후** 최종 화면으로. 히어로는 정지 캡처만으로 성립하므로 급하지 않다.
 
 ## 관리자 화면 — FE Phase 10 이후 촬영
 
 Phase 10에서 명단 패널·출석 컨트롤·회원 관리 레이아웃이 바뀌므로 그 뒤에 찍는다.
+
+**교체 필수.** 아래 파일은 현재 랜딩(Landing.vue 서비스 화면 · 관리자)에 걸려 있지만 전부 Phase 10 수정 전 화면이다.
+Phase 7 감사에서 "런칭 전 필수" 판정을 받은 화면이 그대로 노출된 상태이므로 Phase 10 검증 통과 직후 같은 파일명으로 재촬영해 덮어쓴다.
+
+| 파일 | 현재 출처 | 교체 시점 |
+| --- | --- | --- |
+| public/shots/admin-board-desktop.png | phase-05-exec-b 캡처 (2026-08) | Phase 10 후 |
+| public/shots/admin-board-mobile.png | phase-05-exec-b 캡처 | Phase 10 후 |
+| public/shots/admin-roster-desktop.png | phase-05-exec-c 캡처 | Phase 10 후 |
+| public/shots/admin-approve-desktop.png | phase-03-m3 캡처 | Phase 10 후 |
+| public/shots/admin-member-detail-desktop.png | phase-03-m3 캡처 | Phase 10 후 |
+| public/shots/admin-activity-desktop.png | phase-05-exec-d 캡처 | Phase 10 후 |
+| public/shots/admin-shell-mobile.png · admin-members-desktop.png · admin-reservations-desktop.png · admin-notice-desktop.png · admin-attendance.png | 미사용(예비) | 사용 시 재촬영 |
 
 | # | 화면 | 시나리오 | 형식 | 저장 파일 | 상태 |
 | --- | --- | --- | --- | --- | --- |

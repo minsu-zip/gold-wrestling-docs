@@ -109,7 +109,7 @@ onMounted(() => {
             <ul class="plain">
               <li>도메인별 <code>features/</code>(api · rules · format · components) 묶음. <code>pages/</code>는 조합만 합니다.</li>
               <li>서버 상태는 TanStack Query만 소유하고, 클라이언트 전역 상태는 Zustand로 인증 세션만 둡니다. 서버 데이터를 스토어에 복제하지 않습니다.</li>
-              <li>API 클라이언트는 openapi-fetch 싱글턴. <code>openapi.yaml</code>에서 생성한 타입만 쓰고 수기 타입은 금지합니다. 오류는 응답의 <code>code</code>로만 분기합니다.</li>
+              <li>API 클라이언트는 openapi-fetch 싱글턴. <code>openapi.yaml</code>에서 생성한 타입만 쓰고 수기 타입은 금지합니다. 오류는 응답의 <code>code</code>로만 분기합니다. <a :href="withBase('/highlights/contract')">계약 기반 협업 방식 자세히</a></li>
               <li>예약 가능 여부 12사유, 0.5회 표시, 월요일 주 경계 같은 판정은 순수 함수(<code>rules.ts</code>)로 분리해 컴포넌트는 결과만 그립니다.</li>
               <li>MSW 목 계층 하나를 Storybook·Vitest·dev 서버가 공유합니다. 서버 없이 Empty·Loading·Error 전 상태를 확인합니다.</li>
               <li>디자인 토큰과 shadcn/ui 위에 터치 타깃·safe-area·타이포 규칙을 design-system 스킬로 명문화했습니다.</li>
@@ -296,6 +296,10 @@ onMounted(() => {
         <a href="https://github.com/minsu-zip/gold-wrestling-fe">gold-wrestling-fe</a>
         <a href="https://github.com/minsu-zip/gold-wrestling-be">gold-wrestling-be</a>
         <a href="https://github.com/minsu-zip/gold-wrestling-docs">gold-wrestling-docs</a>
+      </div>
+      <div>
+        <p class="kicker">연락</p>
+        <a href="https://github.com/minsu-zip">github.com/minsu-zip</a>
       </div>
       <div>
         <p class="kicker">더 읽기</p>

@@ -8,7 +8,7 @@ export default withMermaid(
     description: '레슬링 체육관의 회원·이용권·예약을 한 곳에서 관리하는 웹 서비스. 요구사항·정책·아키텍처·검증 게이트를 운영하고 구현은 AI 에이전트와 협업한 프로젝트 기록.',
     base: '/gold-wrestling-docs/',
     cleanUrls: true,
-    srcExclude: ['README.md', 'CAPTURE-LIST.md'],
+    srcExclude: ['README.md', 'CAPTURE-LIST.md', 'TODO.md'],
     head: [
       ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css' }],
       ['meta', { name: 'theme-color', content: '#edb417' }],
@@ -31,6 +31,7 @@ export default withMermaid(
           items: [
             { text: '동시성 제어', link: '/highlights/concurrency' },
             { text: '상태 기반 멱등 배치', link: '/highlights/idempotent-batch' },
+            { text: '계약 기반 FE·BE 협업', link: '/highlights/contract' },
             { text: 'UI 감사 파이프라인', link: '/highlights/ui-audit' },
           ],
         },

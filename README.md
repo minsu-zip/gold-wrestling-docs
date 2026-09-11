@@ -12,4 +12,4 @@ pnpm docs:build
 pnpm docs:preview
 ```
 
-홈 랜딩은 `.vitepress/theme/Landing.vue`. 스크린샷 촬영 목록은 `CAPTURE-LIST.md`.
+홈 랜딩은 `.vitepress/theme/Landing.vue`. 스크린샷 촬영 목록은 `CAPTURE-LIST.md`, 남은 할 일은 `TODO.md`.

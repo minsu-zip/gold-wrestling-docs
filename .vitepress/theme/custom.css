@@ -179,7 +179,7 @@ html:not(.dark) {
 .gw .timeline span { color: var(--gw-ink-2); }
 
 /* 푸터 */
-.gw .foot { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; border-top: 1px solid var(--gw-line); margin-top: 72px; padding-top: 32px; }
+.gw .foot { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; border-top: 1px solid var(--gw-line); margin-top: 72px; padding-top: 32px; }
 .gw .foot a { display: block; width: fit-content; margin-top: 6px; font-size: 14.5px; }
 
 /* 스크롤 등장 */
