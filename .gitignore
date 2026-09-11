@@ -1,0 +1,8 @@
+node_modules/
+.vitepress/dist/
+.vitepress/cache/
+.DS_Store
+
+# 패키지 매니저: pnpm 고정. pnpm-lock.yaml은 커밋 대상
+package-lock.json
+yarn.lock
