@@ -30,13 +30,13 @@ title: UI 감사 파이프라인
 ## 결과
 
 <div class="shots wide">
-  <figure><img src="/shots/weeknav-before.png?v=20260917" alt="주 이동 버튼 수정 전. 32×32로 기준 36px 미달"><figcaption><b>주 이동 · 수정 전</b> 화살표 32×32, 행 액션 기준 36px 미달. 공용 컴포넌트라 관리자 보드에도 같은 위반</figcaption></figure>
-  <figure><img src="/shots/weeknav-after.png?v=20260917" alt="주 이동 버튼 수정 후. 36×36으로 기준 통과"><figcaption><b>수정 후</b> 36×36. 재감사에서 관리자 보드 항목이 함께 닫힘. 테두리와 수치는 감사 도구의 실측값을 캡처 위에 표시한 것</figcaption></figure>
+  <figure><img src="/shots/weeknav-before.png?v=20260917-2" alt="주 이동 버튼 수정 전. 32×32로 기준 36px 미달"><figcaption><b>주 이동 · 수정 전</b> 화살표 32×32, 행 액션 기준 36px 미달. 공용 컴포넌트라 관리자 보드에도 같은 위반</figcaption></figure>
+  <figure><img src="/shots/weeknav-after.png?v=20260917-2" alt="주 이동 버튼 수정 후. 36×36으로 기준 통과"><figcaption><b>수정 후</b> 36×36. 재감사에서 관리자 보드 항목이 함께 닫힘. 테두리와 수치는 감사 도구의 실측값을 캡처 위에 표시한 것</figcaption></figure>
 </div>
 <div class="shots">
-  <figure><img src="/shots/sheet-before.png?v=20260917" alt="긴 공지 폼 시트, 수정 전. 등록 버튼이 화면 아래로 밀려 보이지 않는다"><figcaption><b>Sheet 푸터 · 수정 전</b> 본문이 긴 폼에서 등록 버튼이 화면 밖으로 밀림</figcaption></figure>
-  <figure><img src="/shots/sheet-after.png?v=20260917" alt="같은 폼·같은 스크롤 위치, 수정 후. 닫기와 등록 버튼이 하단에 고정돼 있다"><figcaption><b>수정 후</b> 같은 데이터·같은 스크롤 위치. sticky + safe-area, 한 곳 수정으로 5화면 해소 (D-182)</figcaption></figure>
-  <figure><img src="/shots/login-mobile.png" alt="로그인"><figcaption><b>로그인</b> 카카오 CTA 하단 고정 (D-180)</figcaption></figure>
+  <figure><img src="/shots/sheet-before.png?v=20260917-2" alt="긴 공지 폼 시트, 수정 전. 등록 버튼이 화면 아래로 밀려 보이지 않는다"><figcaption><b>Sheet 푸터 · 수정 전</b> 본문이 긴 폼에서 등록 버튼이 화면 밖으로 밀림</figcaption></figure>
+  <figure><img src="/shots/sheet-after.png?v=20260917-2" alt="같은 폼·같은 스크롤 위치, 수정 후. 닫기와 등록 버튼이 하단에 고정돼 있다"><figcaption><b>수정 후</b> 같은 데이터·같은 스크롤 위치. sticky + safe-area, 한 곳 수정으로 5화면 해소 (D-182)</figcaption></figure>
+  <figure><img src="/shots/login-mobile.png?v=20260917-2" alt="로그인"><figcaption><b>로그인</b> 카카오 CTA 하단 고정 (D-180)</figcaption></figure>
 </div>
 
 ## 검증

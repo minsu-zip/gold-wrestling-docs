@@ -3,7 +3,7 @@ import { onMounted } from 'vue'
 import { withBase } from 'vitepress'
 
 // 같은 파일명으로 캡처를 교체하면 이 값을 올린다 — 브라우저·CDN 캐시가 옛 이미지를 붙잡지 않게 한다
-const SHOTS_VERSION = '20260917'
+const SHOTS_VERSION = '20260917-2'
 const shot = (name) => `${withBase(`/shots/${name}`)}?v=${SHOTS_VERSION}`
 
 onMounted(() => {
@@ -78,7 +78,7 @@ onMounted(() => {
             <figure><img :src="shot('schedule-mobile.png')" alt="시간표" loading="lazy"><figcaption>주간 시간표</figcaption></figure>
             <figure><img :src="shot('slot-sheet-mobile.png')" alt="예약" loading="lazy"><figcaption>예약 시트</figcaption></figure>
             <figure><img :src="shot('passes-mobile.png')" alt="이용권" loading="lazy"><figcaption>이용권·차감 이력</figcaption></figure>
-            <figure><img :src="shot('my-reservations-mobile.png')" alt="내 예약" loading="lazy"><figcaption>내 예약</figcaption></figure>
+            <figure><img :src="shot('my-reservations-mobile.png')" alt="내 예약" loading="lazy"><figcaption>내 예약 · 변경·취소</figcaption></figure>
           </div>
         </div>
         <div class="role">

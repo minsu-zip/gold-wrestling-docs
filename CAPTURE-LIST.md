@@ -1,7 +1,7 @@
 # 스크린샷 · GIF 촬영 목록
 
 사이트 홈(`Landing.vue`)과 `highlights/ui-audit.md`에 쓰는 캡처·데모 GIF 목록. 마지막 갱신 2026-09-17.
-회원 화면 PNG는 아직 FE `docs/pr-assets`의 PR 검토용 캡처를 줄인 임시본이다. 관리자 5장과 before/after 두 쌍은 2026-09-17에 FE dev(`b3fed8b`) 실제 앱(pnpm dev + MSW)으로 재촬영했다.
+랜딩에 걸린 회원 6장·관리자 6장과 before/after 두 쌍은 2026-09-17에 FE dev(`b3fed8b`) 실제 앱(pnpm dev + MSW)으로 재촬영했다. 랜딩에 쓰지 않는 예비 파일(`notice-mobile`, `profile-mobile`, `admin-shell-mobile` 등)은 PR 검토용 캡처를 줄인 임시본 그대로다.
 
 규격
 - 모바일: 390×844 (iPhone 14 뷰포트), DPR 2로 찍고 360~390px 폭으로 리사이즈. 상태바 없이 앱 영역만.
@@ -12,18 +12,20 @@
 - 방문 순서는 FE 감사 하네스(`e2e/audit/harness.ts`)와 같다: `clock.install(기준시각−1분)` → 인증 시드 → 뷰포트 → `goto` → 스켈레톤 0 대기 → (오버레이 열기) → `clock.pauseAt(2026-03-11T01:00:00Z)`. 기준 시각은 수요일 오전 10:00 KST.
 - 교체 후에는 캐시 버전을 올린다: `Landing.vue`의 `SHOTS_VERSION`, 마크다운에 직접 쓴 `<img>`는 `?v=YYYYMMDD`.
 
-## 회원 화면 — 지금 촬영 가능
+## 회원 화면
+
+모바일 390×844를 DPR 2로 찍어 360px 폭으로 줄였다. 기준 시각이 수요일(3/11)이라 예약 가능한 슬롯은 그 뒤 요일에서 고른다 — 토요일 13:00 `수업 5/10`. 월요일 슬롯은 과거인데도 목 데이터상 예약 버튼이 떠서 쓰지 않는다.
 
 | # | 화면 | 시나리오 | 형식 | 저장 파일 | 상태 |
 | --- | --- | --- | --- | --- | --- |
-| M1 | 로그인 | 랜딩 → 카카오 버튼 노출 | PNG | public/shots/login-mobile.png | 임시본 있음 |
+| M1 | 로그인 | 랜딩 → 카카오 버튼 노출 | PNG | public/shots/login-mobile.png | 완료(2026-09-17) |
 | M2 | 온보딩 | 이름·전화번호 입력 → 검증 오류 → 제출 | PNG ×2 | public/shots/onboarding-mobile.png | 미촬영 |
 | M3 | 승인 대기 | PENDING 상태 안내 | PNG | public/shots/pending-mobile.png | 미촬영 |
-| M4 | 홈 | 잔여 횟수 + 이번 주 예약 | PNG | public/shots/home-mobile.png | 임시본 있음 |
-| M5 | 시간표 | 주 이동 → 슬롯 상태(예약 가능/마감/휴강/당일) | PNG | public/shots/schedule-mobile.png | 임시본 있음 |
-| M6 | 예약 시트 | 슬롯 탭 → 시트 → 예약 확정 → 잔여 차감 반영 | PNG + GIF | public/shots/slot-sheet-mobile.png, demo-member-reserve.gif | 임시본 있음 / GIF 미촬영 |
-| M7 | 내 예약 | 목록 → 취소 → 복구 확인 | GIF | demo-member-cancel.gif | 미촬영 |
-| M8 | 이용권 | 보유 이용권 + 차감 이력(0.5 단위) | PNG | public/shots/passes-mobile.png | 임시본 있음 |
+| M4 | 홈 | 잔여 횟수 + 이번 주 예약 | PNG | public/shots/home-mobile.png | 완료(2026-09-17) |
+| M5 | 시간표 | 주 이동 → 슬롯 상태(예약 가능/마감/휴강/당일) | PNG | public/shots/schedule-mobile.png | 완료(2026-09-17) · 토요일 선택 |
+| M6 | 예약 시트 | 슬롯 탭 → 시트 → 예약 확정 → 잔여 차감 반영 | PNG + GIF | public/shots/slot-sheet-mobile.png, demo-member-reserve.gif | PNG 완료(2026-09-17) · 토요일 13:00 셀. README 대표 컷 / GIF 미촬영 |
+| M7 | 내 예약 | 목록 → 취소 → 복구 확인 | PNG + GIF | public/shots/my-reservations-mobile.png, demo-member-cancel.gif | PNG 완료(2026-09-17) · `/reservations`에서 예약 메뉴(변경·취소)를 연 상태 / GIF 미촬영 |
+| M8 | 이용권 | 보유 이용권 + 차감 이력(0.5 단위) | PNG | public/shots/passes-mobile.png | 완료(2026-09-17) · `/passes/1` 상세(차감·복구 이력) |
 | M9 | 공지 | 목록 → 상세 | PNG | public/shots/notice-mobile.png | 미촬영 |
 | M10 | 데스크탑 시간표 | 주간 그리드 | PNG 720 | public/shots/schedule-desktop.png | 미촬영 |
 
@@ -32,7 +34,7 @@
 
 ## 관리자 화면
 
-랜딩(Landing.vue 서비스 화면 · 관리자)에 걸린 6장 중 5장을 Phase 10 기계 검증 통과(2026-09-17) 직후 같은 파일명으로 재촬영했다. 데스크탑 1280×800·모바일 390×844를 DPR 2로 찍어 720px·360px 폭으로 줄였다. 실기기 확인(Phase 11 VERI-03)에서 화면이 다시 바뀌면 한 번 더 찍는다.
+랜딩(Landing.vue 서비스 화면 · 관리자)에 걸린 6장을 Phase 10 기계 검증 통과(2026-09-17) 직후 같은 파일명으로 재촬영했다. 데스크탑 1280×800·모바일 390×844를 DPR 2로 찍어 720px·360px 폭으로 줄였다. 실기기 확인(Phase 11 VERI-03)에서 화면이 다시 바뀌면 한 번 더 찍는다.
 
 | 파일 | 촬영 조건 | 상태 |
 | --- | --- | --- |
@@ -41,7 +43,7 @@
 | public/shots/admin-roster-desktop.png | `/admin` 1280 → 목요일 19:00 셀(`수업 4/10`) 명단 패널. 저녁반·예약제·1:1이 한 패널에 있는 셀 | 완료(2026-09-17) |
 | public/shots/admin-approve-desktop.png | `/admin/members?status=PENDING&onboardingCompleted=true` 1280. MSW 기본 핸들러가 `status` 필터를 무시하므로 서비스 워커를 막고 픽스처에서 PENDING만 거른 응답을 스텁(하네스 B 방식) | 완료(2026-09-17) |
 | public/shots/admin-member-detail-desktop.png | `/admin/members/1` 1280 | 완료(2026-09-17) |
-| public/shots/admin-activity-desktop.png | phase-05-exec-d 스토리 캡처(셸 없음). 랜딩에 걸려 있음 | 미교체 — 다음 촬영 때 `/admin/activity` 1280으로 |
+| public/shots/admin-activity-desktop.png | `/admin/activity` 1280 | 완료(2026-09-17) |
 | public/shots/admin-shell-mobile.png · admin-members-desktop.png · admin-reservations-desktop.png · admin-notice-desktop.png · admin-attendance.png | 미사용(예비) | 사용 시 재촬영 |
 
 | # | 화면 | 시나리오 | 형식 | 저장 파일 | 상태 |
