@@ -55,7 +55,7 @@ FE 세션과 BE 세션은 서로의 코드를 읽지 않고 BE 레포의 `docs/`
 | `glossary.md` | 두 레포가 같은 이름을 쓰게 하는 용어집 |
 | `error-codes.md` | FE가 분기하는 `code` 값의 유일한 계약 |
 | `api/openapi.yaml` | API 계약. 없는 API는 구현하지 않음 |
-| `decisions.md` | 결정 186건. FE 결정도 같은 파일에 D-번호로 |
+| `decisions.md` | 결정 194건. FE 결정도 같은 파일에 D-번호로 |
 
 ## 게이트
 

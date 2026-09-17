@@ -4,12 +4,12 @@ title: 프로젝트 현황
 
 # 프로젝트 현황
 
-마일스톤이 끝날 때마다 갱신합니다. 마지막 갱신 2026-09-11.
+마일스톤이 끝날 때마다 갱신합니다. 마지막 갱신 2026-09-17.
 
 | 영역 | 완료 | 진행 예정 |
 | --- | --- | --- |
 | BE | v1.0 Phase 1~6 (2026-09-01) | v1.1 배포·운영 Phase 7~10 |
-| FE | v1.0 M1~M6 (2026-08-31) · v1.1 Phase 7~9 | v1.1 Phase 10~11 |
+| FE | v1.0 M1~M6 (2026-08-31) · v1.1 Phase 7~10 (Phase 10은 기계 검증 통과, 실기기 대기) | v1.1 Phase 11 |
 | 인프라 | 계정·도메인·인증서·빈 서버 | 서버 구성, 배포 파이프라인, 백업, 부하 실증 |
 
 ## 완료 <span class="st done">v1.0 + FE v1.1 일부</span>
@@ -20,13 +20,14 @@ title: 프로젝트 현황
 
 **FE v1.1 · Phase 7~9.** 감사 인프라(전 화면 × 3 뷰포트 캡처·측정, 필수 59건), 규칙 명문화, 회원 화면 수정(CTA 하단 고정, 터치 타깃, Sheet 푸터, 브랜드 골드 주 액션 색).
 
+**FE v1.1 · Phase 10 (2026-09-17).** 관리자 화면 수정. 명단 패널 출석 3상태 컨트롤을 40px·간격 8px로 맞추고 448px 패널에서 줄바꿈·넘침이 없음을 확인했습니다. 승인 리포트의 관리자 몫 필수 39건(#21~#59)을 요소 단위로 재대조해 전건 통과했고, 데스크탑 주간 보드 52요소의 치수 변화는 0이라 표 밀도가 그대로입니다. 기계 검증은 로드맵 성공 기준 4/4, 요구사항 3/3 통과입니다. 에뮬레이션으로 판정할 수 없는 실기기 7항목(Sheet 푸터와 홈 인디케이터, iOS 키보드 위 버튼 도달, 출석 연속 전환 오탭, 뱃지 가림)은 Phase 11 VERI-03에서 확인합니다.
+
 ## 진행 예정
 
 | 항목 | 내용 | 상태 |
 | --- | --- | --- |
-| FE Phase 10 | 관리자 화면 수정. 명단 패널 Sheet 배치, 출석 컨트롤 터치 타깃, 데스크탑 표 밀도 유지 | <span class="st todo">예정</span> |
-| FE Phase 11 | 검증. 전 화면 재캡처 대조, 필수 59건 항목별 확인, 실기기 체크리스트 | <span class="st todo">예정</span> |
-| BE Phase 7 | 컨테이너화·서버 구성. Dockerfile, compose(app+postgres+Caddy), 메모리 예산, GHCR 게시 | <span class="st wip">6개 중 5개 완료</span> |
+| FE Phase 11 | 검증. 전 화면 재캡처 대조, 필수 59건 항목별 확인, 실기기 체크리스트(Phase 10에서 넘어온 7항목 포함) | <span class="st todo">예정</span> |
+| BE Phase 7 | 컨테이너화·서버 구성. Dockerfile, compose(app+postgres+Caddy), 메모리 예산, GHCR 게시까지 완료(플랜 5/6). 남은 07-06은 실 EC2 수동 배포와 HTTPS·메모리 실측 | <span class="st wip">wave 4(07-06) 진행 중</span> |
 | BE Phase 8 | 배포 파이프라인. main push → CI → GHCR → SSH 배포 → health 게이트 | <span class="st todo">예정</span> |
 | BE Phase 9 | 운영 안전장치. S3 백업, 복구 리허설, 로그 로테이션 | <span class="st todo">예정</span> |
 | BE Phase 10 | k6로 초과 예약 0건 실증, 미사용 차감 cron 활성화 | <span class="st todo">예정</span> |

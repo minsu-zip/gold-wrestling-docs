@@ -2,7 +2,9 @@
 import { onMounted } from 'vue'
 import { withBase } from 'vitepress'
 
-const shot = (name) => withBase(`/shots/${name}`)
+// 같은 파일명으로 캡처를 교체하면 이 값을 올린다 — 브라우저·CDN 캐시가 옛 이미지를 붙잡지 않게 한다
+const SHOTS_VERSION = '20260917'
+const shot = (name) => `${withBase(`/shots/${name}`)}?v=${SHOTS_VERSION}`
 
 onMounted(() => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -39,14 +41,14 @@ onMounted(() => {
 
     <section class="numbers reveal" aria-labelledby="h-num">
       <h2 id="h-num">숫자로 보는 프로젝트</h2>
-      <p class="numbers-sub">2026년 9월 11일 기준으로 두 레포에서 직접 센 값입니다. 부하 테스트와 실사용 수치는 배포 뒤에 추가합니다.</p>
+      <p class="numbers-sub">2026년 9월 17일 기준으로 두 레포에서 직접 센 값입니다. 부하 테스트와 실사용 수치는 배포 뒤에 추가합니다.</p>
       <dl>
         <div><dd>85</dd><dt>요구사항 전부 충족<small>v1.0에서 정의한 요구사항 85건(백엔드 44 · 프론트엔드 41)이 모두 검증을 통과했습니다.</small></dt></div>
-        <div><dd>186</dd><dt>기록된 의사결정<small>왜 그렇게 했고 무엇을 기각했는지를 D-번호로 남긴 결정의 수입니다.</small></dt></div>
-        <div><dd>2,471</dd><dt>자동화 테스트<small>백엔드 883건, 프론트엔드 1,588건(단위 982 · 스토리 렌더 498 · E2E 108).</small></dt></div>
-        <div><dd>91</dd><dt>머지된 PR<small>프론트엔드 55건, 백엔드 36건. 모든 변경은 PR과 CI를 거쳐 들어갔습니다.</small></dt></div>
+        <div><dd>194</dd><dt>기록된 의사결정<small>왜 그렇게 했고 무엇을 기각했는지를 D-번호로 남긴 결정의 수입니다.</small></dt></div>
+        <div><dd>2,558</dd><dt>자동화 테스트<small>백엔드 885건, 프론트엔드 1,673건(단위 1,047 · 스토리 렌더 518 · E2E 108).</small></dt></div>
+        <div><dd>100</dd><dt>머지된 PR<small>프론트엔드 62건, 백엔드 38건. 두 레포 dev 브랜치 커밋은 1,373건이고, 모든 변경은 PR과 CI를 거쳐 들어갔습니다.</small></dt></div>
         <div><dd>0</dd><dt>초과 예약<small>정원 마지막 자리에 동시 요청을 보내는 테스트에서 정원을 넘긴 예약이 없었습니다.</small></dt></div>
-        <div><dd>59</dd><dt>UI 감사로 찾은 필수 수정 항목<small>전 화면을 세 가지 화면 폭으로 캡처해 터치 크기·버튼 위치·글자 크기를 측정한 결과입니다. 이 중 회원 화면 분은 수정을 마쳤습니다.</small></dt></div>
+        <div><dd>59</dd><dt>UI 감사로 찾은 필수 수정 항목<small>전 화면을 세 가지 화면 폭으로 캡처해 터치 크기·버튼 위치·글자 크기를 측정한 결과입니다. 회원·관리자 화면 모두 수정을 마쳤고 재감사에서 전부 통과했습니다. 실기기 확인 7항목만 남았습니다.</small></dt></div>
       </dl>
     </section>
 
@@ -118,8 +120,8 @@ onMounted(() => {
           <div>
             <h4>테스트 3층</h4>
             <ul class="plain">
-              <li>Vitest 982건. 순수 함수 판정의 경계값을 고정합니다.</li>
-              <li>Storybook 498 스토리를 실제 Chromium에서 렌더해 회귀를 잡습니다.</li>
+              <li>Vitest 1,047건. 순수 함수 판정의 경계값을 고정합니다.</li>
+              <li>Storybook 518 스토리를 실제 Chromium에서 렌더해 회귀를 잡습니다.</li>
               <li>Playwright 108 시나리오를 데스크탑 Chromium과 모바일 Safari 양쪽에서 돌립니다.</li>
               <li>axe 위반 0건, 주 액션 색 대비 10.5:1을 테스트로 고정했습니다.</li>
             </ul>
@@ -169,12 +171,13 @@ onMounted(() => {
               <li>시각은 <code>page.clock</code>으로 고정해 매번 같은 화면이 찍힙니다.</li>
               <li>결과는 런칭 전 필수 59건 · 권장 68건으로 분류하고, 실기기 확인을 거쳐 승인한 뒤에만 수정 기준이 됩니다.</li>
               <li>승인된 규칙은 디자인 시스템 규칙 파일로 옮겨 이후 작업이 읽습니다. 재감사는 승인본과 요소 단위로 대조해 회귀를 가려냅니다.</li>
+              <li>회원 화면(Phase 9)에 이어 관리자 화면(Phase 10)까지 수정을 마쳤고, 필수 59건이 재감사에서 항목별로 통과했습니다. 에뮬레이션이 못 잡는 실기기 7항목은 마지막 검증 단계에서 사람이 판정합니다.</li>
             </ul>
             <a :href="withBase('/highlights/ui-audit')">감사 파이프라인 자세히</a>
           </div>
           <div class="pair">
-            <figure><img :src="shot('sheet-before.png')" alt="시트 푸터 수정 전" loading="lazy"><figcaption>수정 전 · 버튼이 콘텐츠와 함께 스크롤</figcaption></figure>
-            <figure><img :src="shot('sheet-after.png')" alt="시트 푸터 수정 후" loading="lazy"><figcaption>수정 후 · sticky + safe-area</figcaption></figure>
+            <figure><img :src="shot('sheet-before.png')" alt="긴 공지 폼 시트, 수정 전. 등록 버튼이 화면 아래로 밀려 보이지 않는다" loading="lazy"><figcaption>수정 전 · 긴 폼에서 등록 버튼이 화면 밖으로 밀림</figcaption></figure>
+            <figure><img :src="shot('sheet-after.png')" alt="같은 폼·같은 스크롤 위치, 수정 후. 닫기와 등록 버튼이 하단에 고정돼 있다" loading="lazy"><figcaption>수정 후 · 같은 스크롤 위치, 버튼 하단 고정</figcaption></figure>
           </div>
         </div>
       </div>
@@ -196,7 +199,7 @@ onMounted(() => {
           <li>로그인은 카카오, 세션은 JWT. 액세스 토큰 30분, 리프레시 토큰 14일이고 리프레시 토큰은 한 번 쓰면 새로 발급합니다.</li>
           <li>오류 응답에는 항상 <code>code</code> 값이 실려 오고, 프론트엔드는 이 값으로만 분기합니다. 값 목록은 문서 한 장(error-codes.md)이 관리합니다.</li>
           <li>API 명세는 서버 코드에서 생성해 <code>openapi.yaml</code>로 커밋합니다. 프론트엔드는 이 파일에서 타입을 만들어 씁니다.</li>
-          <li>테스트 883건. 가짜 DB가 아니라 실제 PostgreSQL 컨테이너 위에서 돌립니다.</li>
+          <li>테스트 885건. 가짜 DB가 아니라 실제 PostgreSQL 컨테이너 위에서 돌립니다.</li>
         </ul>
       </div>
 
@@ -286,7 +289,8 @@ onMounted(() => {
         <li><time>2026.09.01</time><span>BE v1.0 완료. 요구사항 44/44, 테스트 883건</span></li>
         <li><time>2026.09.08</time><span>UI 감사 리포트 승인. 필수 59건 · 권장 68건</span></li>
         <li><time>2026.09.11</time><span>FE 회원 화면 수정 검증 통과 (Phase 9)</span></li>
-        <li class="next"><time>예정</time><span>FE 관리자 화면 수정·검증 (Phase 10·11), BE 배포·운영 (Phase 7~10), k6 실증</span></li>
+        <li><time>2026.09.17</time><span>FE 관리자 화면 수정 기계 검증 통과 (Phase 10). 필수 항목 전건 해소, 실기기 7항목은 Phase 11로 이관</span></li>
+        <li class="next"><time>예정</time><span>FE 최종 검증·실기기 확인 (Phase 11), BE 배포·운영 (Phase 7~10), k6 실증</span></li>
       </ol>
     </section>
 
@@ -306,7 +310,7 @@ onMounted(() => {
         <a :href="withBase('/status/')">프로젝트 현황</a>
         <a :href="withBase('/architecture')">아키텍처</a>
         <a :href="withBase('/ai-workflow/')">AI 협업 워크플로</a>
-        <a href="https://github.com/minsu-zip/gold-wrestling-be/blob/dev/docs/decisions.md">의사결정 기록 186건 (GitHub)</a>
+        <a href="https://github.com/minsu-zip/gold-wrestling-be/blob/dev/docs/decisions.md">의사결정 기록 194건 (GitHub)</a>
       </div>
     </footer>
   </main>
