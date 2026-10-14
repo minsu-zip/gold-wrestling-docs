@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0 # lastUpdated 계산용
       # pnpm/action-setup이 setup-node보다 먼저 와야 cache: pnpm이 동작한다
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6.1.0 # pnpm 12 지원은 v6.1.0부터 (v4는 pnpm 11+ 미지원)
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
