@@ -1,0 +1,5 @@
+# pnpm 11+는 package.json의 "pnpm" 필드를 읽지 않는다 — pnpm 설정은 이 파일이 단일 출처다.
+
+# 빌드(설치) 스크립트 실행 허용 목록. 목록에 없는 패키지가 스크립트를 가지면 설치가 실패한다.
+allowBuilds:
+  esbuild: true
