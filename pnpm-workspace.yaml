@@ -3,3 +3,8 @@
 # 빌드(설치) 스크립트 실행 허용 목록. 목록에 없는 패키지가 스크립트를 가지면 설치가 실패한다.
 allowBuilds:
   esbuild: true
+
+# vitepress 1.6.4(1.x 최신)가 vite ^5를 요구하지만 vite 5.4.21(5.x 최종)에 dev 서버 취약점이 남아 있다 —
+# 패치가 있는 6.4.x로 올린다. docs:build·docs:dev 정상 동작 확인. vitepress 2 정식 출시 시 제거
+overrides:
+  vite: ^6.4.4
