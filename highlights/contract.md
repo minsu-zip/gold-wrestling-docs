@@ -33,14 +33,29 @@ FE와 BE를 AI 세션 두 개로 병행했습니다. 두 세션이 서로의 코
 | 관리자용 회원 이력 조회 | 컴포넌트와 fixture 스토리로만 고정, API 호출·목 없음 | 해소 (D-149) |
 | 내 예약 목록 기간 필터 | 오름차순 마지막 페이지 조합으로 계약 안에서 우회 | 해소 (D-150) |
 | 출석 명단에 전화번호 | 이름만 표시, N+1 보강 금지 | 해소 (D-148) |
-| 오류 응답 스키마 · 관리자 me · 예약 단건 조회 | 런타임 타입가드 · 토큰 존재 판정 · 현 동작 유지 | v1.1 백로그 |
+| 오류 응답 스키마 · 관리자 me · 예약 단건 조회 | 런타임 타입가드 · 토큰 claim 판정 · 현 동작 유지 | v1.2 백로그 |
 
 해소된 3건은 같은 날 타입을 재생성하고 우회 코드를 되돌렸습니다.
 
+## 출시 뒤에도 같은 통로로
+
+운영 QA에서 나온 BE 요청도 같은 문서와 같은 절차를 탔습니다. BE-REQ-007~015 9건이 열렸고 전부 해소됐습니다. 계약은 41경로에서 46경로로 늘었습니다.
+
+| 요청 | 계약 변화 | 결정 |
+| --- | --- | --- |
+| 휴강·대리 취소를 회원이 확인 | 내 예약 `status=CANCELED` + `cancelCause`(회원·관리자·휴강) | D-223 |
+| 이용권 등록 취소·기간 단축이 왜 막혔는지 | 409에 `blockingReservations` 확장 필드 | D-225 |
+| 가입 신청 알림을 눌러 회원 상세로 | 알림 응답에 `memberId` | D-227 |
+| 이력에서 어떤 수업인지, 누가 했는지 | 이력 행에 `classDate`·`startTime`·`actor` | D-240 |
+| 기간 변경 이력 | `GET /api/admin/members/{memberId}/pass-period-changes` | D-241 |
+| 가입 신청일과 최초 로그인 구분 | `onboardedAt` 분리, 목록 정렬 고정 | D-238, D-239 |
+
+보안 점검으로 refresh 토큰이 쿠키로 옮겨갈 때도 응답 타입 `TokenPairResponse` → `AccessTokenResponse` 변경은 같은 경로로 전달됐습니다. BE가 스펙을 재생성해 커밋하고, FE는 생성 타입을 다시 만들어 세션 모델을 바꿨습니다 (D-229, D-234).
+
 ## 검증
 
-- 앱 코드, MSW 핸들러, E2E 스텁 세 표면에서 계약 밖 호출을 셉니다. 41경로 기준 0건.
+- 앱 코드, MSW 핸들러, E2E 스텁 세 표면에서 계약 밖 호출을 셉니다. v1.0 41경로 기준 0건.
 - MSW가 계약 밖 요청을 에러로 처리해 Vitest·Storybook에서 즉시 실패합니다 (D-143).
 - v1.0 회고 기준 재작업 0건.
 
-근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/dev/docs/decisions.md) D-017 · D-029 · D-076 · D-143 · D-148~D-150, FE `.planning/BE-CHANGE-REQUESTS.md`
+근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/decisions.md) D-017 · D-029 · D-076 · D-143 · D-148~D-150 · D-223 · D-225 · D-227 · D-238~D-241, FE `.planning/BE-CHANGE-REQUESTS.md`

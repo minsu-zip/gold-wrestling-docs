@@ -1,7 +1,19 @@
 # 스크린샷 · GIF 촬영 목록
 
-사이트 홈(`Landing.vue`)과 `highlights/ui-audit.md`에 쓰는 캡처·데모 GIF 목록. 마지막 갱신 2026-09-17.
-랜딩에 걸린 회원 6장·관리자 6장과 before/after 두 쌍은 2026-09-17에 FE dev(`b3fed8b`) 실제 앱(pnpm dev + MSW)으로 재촬영했다. 랜딩에 쓰지 않는 예비 파일(`notice-mobile`, `profile-mobile`, `admin-shell-mobile` 등)은 PR 검토용 캡처를 줄인 임시본 그대로다.
+사이트 홈(`Landing.vue`)과 `highlights/ui-audit.md`에 쓰는 캡처·데모 GIF 목록. 마지막 갱신 2026-11-04.
+
+**2026-11-04 재촬영.** 랜딩에 걸린 회원 6장·관리자 6장은 FE main(`e868920`)에서 `pnpm audit:capture -g capture`(MSW 목 데이터, 고정 시각)로 찍은 결과를 같은 파일명으로 옮겼다. DPR 1 · 모바일 360×900 원본 그대로, 데스크탑은 1280 → 720 폭으로 줄였다. 대응표:
+
+| 사이트 파일 | 감사 캡처 원본 |
+| --- | --- |
+| login-mobile · home-mobile · profile-mobile | login-360 · home-360 · me-360 |
+| schedule-mobile · slot-sheet-mobile · passes-mobile | reservations-360 · overlay-slot-dialog-360 · pass-detail-360 |
+| admin-board-desktop · admin-roster-desktop · admin-members-desktop | admin-board-1280 · overlay-roster-panel-1280 · admin-members-1280 |
+| admin-member-detail-desktop · admin-activity-desktop · admin-board-mobile | admin-member-detail-1280 · admin-activity-1280 · admin-board-360 |
+
+`my-reservations-mobile` · `admin-approve-desktop`은 랜딩에서 빠졌다(예약 화면에 다가오는 예약이 합쳐졌고, 승인은 회원 목록·승인 대기 탭으로 대체). 하네스 B(서비스 워커 차단) 화면 4종 — 온보딩·승인 대기·거절·비활성 — 은 이번 실행에서 캡처에 실패했다. before/after 두 쌍은 Phase 9·10 수정의 기록이라 다시 찍지 않는다.
+
+아래 표의 상태 열은 2026-09-17 기준 기록이다.
 
 규격
 - 모바일: 390×844 (iPhone 14 뷰포트), DPR 2로 찍고 360~390px 폭으로 리사이즈. 상태바 없이 앱 영역만.
