@@ -36,7 +36,7 @@ title: UI 감사 파이프라인
 <div class="shots">
   <figure><img src="/shots/sheet-before.png?v=20260917-2" alt="긴 공지 폼 시트, 수정 전. 등록 버튼이 화면 아래로 밀려 보이지 않는다"><figcaption><b>Sheet 푸터 · 수정 전</b> 본문이 긴 폼에서 등록 버튼이 화면 밖으로 밀림</figcaption></figure>
   <figure><img src="/shots/sheet-after.png?v=20260917-2" alt="같은 폼·같은 스크롤 위치, 수정 후. 닫기와 등록 버튼이 하단에 고정돼 있다"><figcaption><b>수정 후</b> 같은 데이터·같은 스크롤 위치. sticky + safe-area, 한 곳 수정으로 5화면 해소 (D-182)</figcaption></figure>
-  <figure><img src="/shots/login-mobile.png?v=20260917-2" alt="로그인"><figcaption><b>로그인</b> 카카오 CTA 하단 고정 (D-180)</figcaption></figure>
+  <figure><img src="/shots/login-mobile.png?v=20261104" alt="로그인"><figcaption><b>로그인</b> 카카오 CTA 하단 고정 (D-180)</figcaption></figure>
 </div>
 
 ## 검증
@@ -44,7 +44,9 @@ title: UI 감사 파이프라인
 - 재감사는 전수 재실행 후 승인본과 요소 단위로 대조합니다. 바뀌어야 할 것을 재실행 전에 표로 선언하고, 상이 항목을 전부 매핑하거나 회귀 후보로 분류합니다 (D-184).
 - Phase 9 결과: 선언 매핑 21건, 파급 2건, 회귀 후보 1건. 필수 0건 화면 4개는 불변.
 - Phase 10 결과(2026-09-17): 관리자 몫 필수 39건(#21~#59)을 요소 단위로 재대조해 전건 통과. 명단 패널 출석 컨트롤 60행이 전부 40px·간격 8px, 데스크탑 주간 보드 52요소는 치수 변화 0. Phase 9의 회귀 후보 1건도 승인본 값으로 복구됐습니다.
-- 에뮬레이션이 못 잡는 항목(safe-area 이중 계상, iOS 키보드 위 CTA)은 실기기 체크리스트로 사람이 판정합니다. Phase 10의 실기기 7항목은 Phase 11에서 함께 판정합니다.
+- Phase 11 최종 검증(2026-10-18): 필수 59건을 행 단위 해소 매트릭스로 판정해 48 해소 · 11 실기기 판정 보류 · 미해소 0. 전수 재감사는 Phase 10 기준선과 바이트 단위로 같았습니다. 승인 뒤 삭제된 테스트 단언 77행도 전부 분류해 이유 없이 약해진 단언이 없음을 확인했습니다.
+- 에뮬레이션이 못 잡는 항목(safe-area 이중 계상, iOS 키보드 위 CTA, 출석 연속 전환 오탭)은 실기기 체크리스트로 사람이 판정합니다. 이 게이트는 "실패"가 아니라 "미확인"으로 기록하고, 운영 배포 뒤 실사용 검증으로 이월했습니다 (D-198).
+- 출시 뒤 QA 1차에서 감사 규칙(터치 타깃 계층)에 어긋난 5곳을 추가로 찾아 같은 기준으로 고쳤습니다.
 - 위 before/after는 수정 전 커밋을 별도 워크트리로 체크아웃해 같은 목 데이터·같은 고정 시각·같은 스크롤 위치로 찍었습니다.
 
-근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/dev/docs/decisions.md) D-154~D-158 · D-167 · D-184 · D-187~D-194, FE `.planning/phases/07-audit-infra/07-REPORT.md` · `10-admin-screens/10-VERIFICATION.md`
+근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/decisions.md) D-154~D-158 · D-167 · D-184 · D-187~D-194 · D-198, FE `.planning/phases/07-audit-infra/07-REPORT.md` · `10-admin-screens/10-VERIFICATION.md` · `11-verification/`

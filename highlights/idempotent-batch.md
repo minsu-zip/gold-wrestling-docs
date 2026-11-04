@@ -37,5 +37,6 @@ title: 상태 기반 멱등 배치
 - 부족분 계산과 기준일 선택은 단위 테스트로 경계값(13일, 14일, 28일, 시행일 이전)을 고정했습니다.
 - 같은 날 두 번 실행, 3일 뒤 실행, 수동 실행 직후 자동 실행이 같은 결과를 내는지 통합 테스트로 확인했습니다.
 - 동시 실행은 DB 부분 유니크로 거부되고 409로 응답합니다 (D-117, D-118).
+- 운영에서는 매일 03:00 DB 백업이 04:00 배치 직전에 돌도록 배치했습니다. 자동 실행은 운영 배포 뒤에도 꺼진 상태이고, 3단계 활성화는 BE Phase 10에서 진행합니다.
 
-근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/dev/docs/decisions.md) D-105 · D-106 · D-117 · D-119 · D-121 · D-127 · D-151, [policies.md](https://github.com/minsu-zip/gold-wrestling-be/blob/dev/docs/policies.md) §4.3
+근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/decisions.md) D-105 · D-106 · D-117 · D-119 · D-121 · D-127 · D-151, [policies.md](https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/policies.md) §4.3

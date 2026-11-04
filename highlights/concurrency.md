@@ -23,12 +23,14 @@ DB 제약과 조건부 갱신을 먼저 쓰고, 락은 부족한 지점에만 �
 | 그래도 남는 곳 | `SELECT ... FOR UPDATE`를 필요한 행에만 |
 | refresh 토큰 회전 | 조건부 UPDATE, 실패 응답에서도 커밋해 재사용 감지 유지 (D-051) |
 | 배치 실행 | 실행 이력 `RUNNING` 행에 부분 유니크 인덱스 (D-117) |
+| 횟수권 한 장 원칙 (출시 후) | 회원 행 `PESSIMISTIC_WRITE` 잠금. "같은 종류의 사용 중 이용권이 없을 때만 등록"은 존재하지 않는 행에 대한 조건이라 조건부 UPDATE나 유니크로 표현할 수 없어, 레포에서 처음으로 비관적 락을 썼습니다 (D-218) |
 
 기각한 것: 낙관적 락은 마지막 자리 경쟁에서 재시도가 폭증합니다. 애플리케이션 레벨 동기화는 다중 인스턴스에서 무효입니다.
 
 ## 검증
 
 - 실제 PostgreSQL(Testcontainers) 위에서 `ExecutorService`와 `CountDownLatch`로 N+M 스레드를 같은 순간에 풀고, 성공 건수가 정원과 같은지, 초과가 0인지 셉니다 (D-098). 같은 모양의 테스트가 반복되도록 규약과 스킬로 남겼습니다.
-- k6 부하테스트는 목적이 처리량 측정이라 이 단계에서 넣지 않았습니다. 배포 뒤 실 서버를 상대로 초과 예약 0건과 p95를 다시 실증합니다.
+- 횟수권 동시 등록도 같은 방식으로 두 요청을 동시에 풀어 201 1건 · 409 1건을 확인했습니다.
+- k6 부하테스트는 목적이 처리량 측정이라 이 단계에서 넣지 않았습니다. 운영 서버(2026-10 배포)를 상대로 초과 예약 0건과 p95를 실증하는 일은 BE Phase 10에 남아 있습니다.
 
-근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/dev/docs/decisions.md) D-021 · D-051 · D-098 · D-117, [policies.md](https://github.com/minsu-zip/gold-wrestling-be/blob/dev/docs/policies.md) §8
+근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/decisions.md) D-021 · D-051 · D-098 · D-117 · D-218, [policies.md](https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/policies.md) §8
