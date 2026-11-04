@@ -7,6 +7,13 @@
 
 **📄 사이트에서 보기 → https://minsu-zip.github.io/gold-wrestling-docs/**
 
+**🔍 로그인 없이 기능 둘러보기** — 실서비스는 카카오 가입·관리자 승인 뒤에만 쓸 수 있어, 공개 이용 가이드로 실제 화면을 볼 수 있습니다.
+
+| 대상 | 가이드 | 담긴 내용 |
+| --- | --- | --- |
+| 회원 | [app.goldwrestling.com/guide/member](https://app.goldwrestling.com/guide/member) | 가입·승인 대기, 수업 예약·취소·변경, 이용권과 차감 이력, 공지 (8개 섹션) |
+| 관리자 | [app.goldwrestling.com/guide/admin](https://app.goldwrestling.com/guide/admin) | 가입 승인, 주간 보드·출석·휴강, 이용권 등록·충전·가감, 대리 취소, 공지·알림 (12개 섹션) |
+
 <p>
   <img src="public/shots/slot-sheet-mobile.png" alt="회원 예약 화면(모바일)" width="240">
   <img src="public/shots/admin-board-desktop.png" alt="관리자 주간 보드(데스크탑)" width="520">

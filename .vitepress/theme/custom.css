@@ -186,7 +186,26 @@ html:not(.dark) {
 html.js-reveal .gw .reveal { opacity: 0; transform: translateY(10px); transition: opacity 0.6s ease, transform 0.6s ease; }
 html.js-reveal .gw .reveal.in { opacity: 1; transform: none; }
 
+/* 로그인 없이 기능 둘러보기 — 히어로 안 평가자 입구 (BE D-247) */
+.gw .tour { margin-top: 36px; padding: 24px 0 0; border-top: 1px solid var(--gw-line); }
+.gw .tour-head h2 { font-size: 20px; line-height: 1.35; }
+.gw .tour-head p { margin-top: 6px; font-size: 14.5px; color: var(--gw-ink-2); max-width: 72ch; }
+.gw .tour-links { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.gw a.tour-card { display: grid; gap: 6px; padding: 18px 20px 20px; border: 1px solid var(--gw-line); border-top: 3px solid var(--gw-gold); color: var(--gw-ink); text-decoration: none; transition: border-color 0.15s ease, background-color 0.15s ease; }
+.gw a.tour-card:hover { border-color: var(--gw-ink); border-top-color: var(--gw-gold); background: var(--vp-c-bg-soft); color: var(--gw-ink); }
+.gw a.tour-card:focus-visible { outline: 2px solid var(--gw-gold); outline-offset: 2px; }
+.gw .tour-who { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--gw-gold-text); }
+.gw .tour-card strong { font-size: 19px; line-height: 1.35; }
+.gw .tour-card .arrow { color: var(--gw-gold-text); font-weight: 400; }
+.gw .tour-what { font-size: 14px; line-height: 1.6; color: var(--gw-ink-2); }
+.gw .tour-meta { font-size: 13px; color: var(--gw-ink-3); }
+.gw .tour-url { margin-top: 4px; font-size: 13px; color: var(--gw-ink); }
+.gw a.guide-link { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin-top: 16px; padding: 8px 12px; border: 1px solid var(--gw-gold); font-size: 14px; font-weight: 600; color: var(--gw-ink); text-decoration: none; }
+.gw a.guide-link:hover { background: var(--vp-c-brand-soft); color: var(--gw-ink); }
+.gw a.guide-link code { font-size: 12.5px; font-weight: 400; color: var(--gw-ink-3); }
+
 @media (max-width: 760px) {
+  .gw .tour-links { grid-template-columns: 1fr; }
   .gw { padding: 0 20px 72px; }
   .gw .hero { padding-top: 40px; }
   .gw .facts { grid-template-columns: 1fr; gap: 10px; }

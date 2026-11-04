@@ -38,6 +38,31 @@ onMounted(() => {
         <div><dt>개발 방식</dt><dd>1인 + AI 에이전트(GSD 워크플로 + Claude Code) · 자동 커밋 금지 · 페이즈마다 사람이 검증·승인 · FE·BE 레포 분리</dd></div>
         <div><dt>스택</dt><dd>React 19 · TypeScript · Vite · TanStack Query · Tailwind 4 · Storybook · Playwright / Kotlin · Spring Boot 4.1 · PostgreSQL 18 / Docker · Caddy · AWS</dd></div>
       </dl>
+
+      <!-- 평가자 동선: 실서비스는 카카오 가입 + 관리자 승인 뒤에만 쓸 수 있어, 로그인 없이 열리는 공개 가이드가
+           기능 전체를 실제 화면으로 볼 수 있는 유일한 입구다 (BE D-247). 주소는 운영 도메인 그대로 노출한다 -->
+      <section class="tour" aria-labelledby="h-tour">
+        <div class="tour-head">
+          <h2 id="h-tour">로그인 없이 기능 둘러보기</h2>
+          <p>실제 서비스는 카카오 가입과 관리자 승인을 거쳐야 쓸 수 있습니다. 아래 이용 가이드는 로그인 없이 열리고, 회원·관리자 기능을 실제 화면 캡처(가상 데이터)와 함께 단계별로 보여 줍니다.</p>
+        </div>
+        <div class="tour-links">
+          <a class="tour-card" href="https://app.goldwrestling.com/guide/member" target="_blank" rel="noopener">
+            <span class="tour-who">회원</span>
+            <strong>회원 이용 가이드 <span class="arrow" aria-hidden="true">↗</span></strong>
+            <span class="tour-what">카카오 가입 · 승인 대기 · 수업 예약 · 당일 전 취소·변경 · 이용권과 0.5회 차감 이력 · 공지</span>
+            <span class="tour-meta">8개 섹션 · 모바일 화면 11장</span>
+            <code class="tour-url">app.goldwrestling.com/guide/member</code>
+          </a>
+          <a class="tour-card" href="https://app.goldwrestling.com/guide/admin" target="_blank" rel="noopener">
+            <span class="tour-who">관리자</span>
+            <strong>관리자 사용 가이드 <span class="arrow" aria-hidden="true">↗</span></strong>
+            <span class="tour-what">가입 승인 · 주간 보드 · 출석 체크 · 휴강 · 이용권 등록·충전·가감 · 대리 취소 · 공지 · 알림</span>
+            <span class="tour-meta">12개 섹션 · 데스크탑 화면 12장 · 자주 받는 회원 문의</span>
+            <code class="tour-url">app.goldwrestling.com/guide/admin</code>
+          </a>
+        </div>
+      </section>
     </header>
 
     <section class="numbers reveal" aria-labelledby="h-num">
@@ -73,6 +98,7 @@ onMounted(() => {
               <li>홈에서 다음 예약·잔여·최근 공지를 한눈에. 휴강·대리 취소된 예약은 "취소된 예약 안내"로 따로 알림</li>
               <li>승인 대기·거절·비활성 화면에서 체육관 전화 걸기·카카오톡 ID 복사로 바로 문의</li>
             </ul>
+            <a class="guide-link" href="https://app.goldwrestling.com/guide/member" target="_blank" rel="noopener">회원 이용 가이드 열기 <span aria-hidden="true">↗</span><code>app.goldwrestling.com/guide/member</code></a>
           </div>
           <div class="gallery m">
             <figure><img :src="shot('login-mobile.png')" alt="로그인" loading="lazy"><figcaption>로그인</figcaption></figure>
@@ -94,6 +120,7 @@ onMounted(() => {
               <li>알림을 누르면 해당 회원 상세나 그 수업의 명단 패널이 바로 열림. 공지 작성, 활동 피드, 예약 검색</li>
               <li>관리자 계정 생성·비활성화·비밀번호 변경</li>
             </ul>
+            <a class="guide-link" href="https://app.goldwrestling.com/guide/admin" target="_blank" rel="noopener">관리자 사용 가이드 열기 <span aria-hidden="true">↗</span><code>app.goldwrestling.com/guide/admin</code></a>
           </div>
           <div class="gallery d">
             <figure><img :src="shot('admin-board-desktop.png')" alt="주간 보드" loading="lazy"><figcaption>주간 보드 (데스크탑)</figcaption></figure>
