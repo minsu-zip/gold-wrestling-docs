@@ -3,7 +3,7 @@ import { onMounted } from 'vue'
 import { withBase } from 'vitepress'
 
 // 같은 파일명으로 캡처를 교체하면 이 값을 올린다 — 브라우저·CDN 캐시가 옛 이미지를 붙잡지 않게 한다
-const SHOTS_VERSION = '20261104'
+const SHOTS_VERSION = '20261104-2'
 const shot = (name) => `${withBase(`/shots/${name}`)}?v=${SHOTS_VERSION}`
 
 onMounted(() => {
