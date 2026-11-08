@@ -39,6 +39,7 @@ title: 보안 점검 후속
 
 - 로그인 제한은 실패 기록이 예외와 함께 롤백되지 않도록 `noRollbackFor`를 걸고, 프록시 뒤 실제 IP로 판정하는지 통합 테스트로 확인했습니다.
 - 배포 후 운영 응답 헤더를 `curl`로 확인했습니다. CSP enforce, HSTS 1줄, `X-Frame-Options: DENY`, `nosniff`, `Permissions-Policy`.
+- CSP를 enforce로 바꾼 다음 날 모바일에서만 카카오 로그인이 스피너에서 멈췄습니다. 카카오톡 간편 로그인은 페이지를 옮기지 않고 카카오 인가 서버를 XHR로 폴링하는데, 이 요청이 `connect-src` 위반으로 매번 막혔습니다. PC는 최상위 이동 경로라 영향이 없었고 데스크톱 E2E로도 잡히지 않았습니다. 와일드카드 대신 실제로 쓰는 호스트 하나(`kauth.kakao.com`)만 허용해 복구하고, CSP나 SDK를 바꿀 때 모바일 실기기 로그인을 확인 항목에 넣었습니다 (D-250).
 - 수정이 만든 회귀 두 건도 같은 날 잡았습니다. 프록시 헤더 신뢰로 HSTS가 두 줄이 된 것(D-235), 리뷰 봇 설정의 YAML 주석 때문에 인자가 통째로 버려져 모든 PR에서 코멘트 0건이 된 것(D-236).
 
-근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/decisions.md) D-229~D-237, BE PR #65 · #66 · #68 · #69, FE PR #81
+근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/decisions.md) D-229~D-237 · D-250, BE PR #65 · #66 · #68 · #69, FE PR #81

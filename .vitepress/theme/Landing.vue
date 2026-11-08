@@ -3,7 +3,7 @@ import { onMounted } from 'vue'
 import { withBase } from 'vitepress'
 
 // 같은 파일명으로 캡처를 교체하면 이 값을 올린다 — 브라우저·CDN 캐시가 옛 이미지를 붙잡지 않게 한다
-const SHOTS_VERSION = '20261104-2'
+const SHOTS_VERSION = '20261108'
 const shot = (name) => `${withBase(`/shots/${name}`)}?v=${SHOTS_VERSION}`
 
 onMounted(() => {
@@ -67,11 +67,11 @@ onMounted(() => {
 
     <section class="numbers reveal" aria-labelledby="h-num">
       <h2 id="h-num">숫자로 보는 프로젝트</h2>
-      <p class="numbers-sub">2026년 11월 4일 기준으로 두 레포 main에서 직접 센 값입니다. k6 부하 테스트 수치는 BE Phase 10에서 추가합니다.</p>
+      <p class="numbers-sub">2026년 11월 8일 기준으로 두 레포 main에서 직접 센 값입니다. k6 부하 테스트 수치는 BE Phase 10에서 추가합니다.</p>
       <dl>
-        <div><dd>245</dd><dt>기록된 의사결정<small>왜 그렇게 했고 무엇을 기각했는지를 D-번호로 남긴 결정의 수입니다.</small></dt></div>
-        <div><dd>3,365</dd><dt>자동화 테스트<small>백엔드 1,032건, 프론트엔드 2,333건(단위 1,564 · 스토리 렌더 649 · E2E 120). 전부 통과.</small></dt></div>
-        <div><dd>163</dd><dt>머지된 PR<small>프론트엔드 87건, 백엔드 76건. 두 레포 main 커밋은 1,672건이고, 모든 변경은 PR·CI·리뷰 봇을 거쳐 들어갔습니다.</small></dt></div>
+        <div><dd>256</dd><dt>기록된 의사결정<small>왜 그렇게 했고 무엇을 기각했는지를 D-번호로 남긴 결정의 수입니다.</small></dt></div>
+        <div><dd>3,532</dd><dt>자동화 테스트<small>백엔드 1,065건, 프론트엔드 2,467건(단위 1,648 · 스토리 렌더 679 · E2E 140). 전부 통과.</small></dt></div>
+        <div><dd>186</dd><dt>머지된 PR<small>프론트엔드 99건, 백엔드 87건. 두 레포 main 커밋은 1,746건이고, 모든 변경은 PR·CI·리뷰 봇을 거쳐 들어갔습니다.</small></dt></div>
         <div><dd>8.5분</dd><dt>main 머지부터 운영 반영까지<small>백엔드는 CI 통과 → 이미지 빌드 → SSH 배포 → health 게이트까지 자동입니다. 롤백은 실연에서 73초가 걸렸습니다.</small></dt></div>
         <div><dd>0</dd><dt>초과 예약<small>정원 마지막 자리에 동시 요청을 보내는 테스트에서 정원을 넘긴 예약이 없었습니다.</small></dt></div>
         <div><dd>59</dd><dt>UI 감사로 찾은 필수 수정 항목<small>전 화면을 세 가지 화면 폭으로 캡처해 터치 크기·버튼 위치·글자 크기를 측정했습니다. 최종 검증에서 48건 해소, 11건은 실기기 판정 보류, 미해소 0건입니다.</small></dt></div>
@@ -114,9 +114,9 @@ onMounted(() => {
             <h4>관리자</h4>
             <p>데스크탑에서는 요일×시간 그리드, 모바일에서는 하루 단위 리스트로 같은 보드를 봅니다. 결제는 오프라인이라 이용권은 관리자가 등록합니다.</p>
             <ul>
-              <li>가입 승인·거절, 회원 검색, 상태 변경(활성·휴회·비활성)</li>
-              <li>이용권 등록, 횟수 충전(횟수권은 종류별 한 장), 0.5 단위 가감, 기간 수정·변경 이력, 등록 취소. 막히면 걸린 예약 목록을 함께 안내</li>
-              <li>주간 보드에서 명단 확인, 대리 취소·변경, 출석 체크(출석 골드·불참 빨강 + 요약), 저녁반 0.5회 차감, 휴강</li>
+              <li>가입 승인·거절, 회원 검색, 상태 변경(활성·휴회·비활성). 승인 대기는 회원 목록과 분리해 승인 대기 메뉴에서만</li>
+              <li>이용권 등록, 횟수 충전(횟수권은 종류별 한 장), 0.5 단위 가감(1:1 레슨권은 정수), 기간 수정·변경 이력, 등록 취소. 막히면 걸린 예약 목록을 함께 안내</li>
+              <li>주간 보드에서 명단 확인(보유 이용권 뱃지, 이름 → 회원 상세, 명단 복사), 대리 취소·변경, 출석 체크(출석 골드·불참 빨강 + 요약), 저녁반 0.5회 차감(이용권 없음·잔여 부족을 나눠 등록·충전으로 안내), 휴강</li>
               <li>알림을 누르면 해당 회원 상세나 그 수업의 명단 패널이 바로 열림. 공지 작성, 활동 피드, 예약 검색</li>
               <li>관리자 계정 생성·비활성화·비밀번호 변경</li>
             </ul>
@@ -124,7 +124,7 @@ onMounted(() => {
           </div>
           <div class="gallery d">
             <figure><img :src="shot('admin-board-desktop.png')" alt="주간 보드" loading="lazy"><figcaption>주간 보드 (데스크탑)</figcaption></figure>
-            <figure><img :src="shot('admin-roster-desktop.png')" alt="명단 패널" loading="lazy"><figcaption>명단 패널 · 출석 3상태·요약</figcaption></figure>
+            <figure><img :src="shot('admin-roster-desktop.png')" alt="명단 패널" loading="lazy"><figcaption>명단 패널 · 보유 이용권·출석 3상태</figcaption></figure>
             <figure><img :src="shot('admin-members-desktop.png')" alt="회원 목록" loading="lazy"><figcaption>회원 목록 · 가입 신청일순</figcaption></figure>
             <figure><img :src="shot('admin-member-detail-desktop.png')" alt="회원 상세" loading="lazy"><figcaption>회원 상세 · 이용권·기간 변경 이력</figcaption></figure>
             <figure><img :src="shot('admin-activity-desktop.png')" alt="활동 피드" loading="lazy"><figcaption>활동 피드</figcaption></figure>
@@ -230,7 +230,7 @@ onMounted(() => {
           <li>로그인 시도는 15분 창에서 관리자 ID 5회·IP 20회를 넘으면 429와 <code>Retry-After</code>로 막습니다. 판정은 bcrypt 비교보다 먼저 합니다.</li>
           <li>오류 응답에는 항상 <code>code</code> 값이 실려 오고, 프론트엔드는 이 값으로만 분기합니다. 값 목록은 문서 한 장(error-codes.md)이 관리합니다.</li>
           <li>API 명세는 서버 코드에서 생성해 <code>openapi.yaml</code>(46경로)로 커밋합니다. 프론트엔드는 이 파일에서 타입을 만들어 씁니다.</li>
-          <li>테스트 1,032건. 가짜 DB가 아니라 실제 PostgreSQL 컨테이너 위에서 돌립니다.</li>
+          <li>테스트 1,065건. 가짜 DB가 아니라 실제 PostgreSQL 컨테이너 위에서 돌립니다.</li>
         </ul>
       </div>
 
@@ -344,6 +344,7 @@ onMounted(() => {
         <li><time>2026.10.24</time><span><b>첫 운영 배포.</b> app.goldwrestling.com — S3 + CloudFront, 실제 체육관에서 사용 시작</span></li>
         <li><time>2026.10.30</time><span>운영 안전장치 — 매일 S3 백업, 복구 리허설 RTO 약 1분 40초 (Phase 9). 수동 QA 1~3차 시작</span></li>
         <li><time>2026.11.03</time><span>보안 점검 후속 — refresh HttpOnly 쿠키, 로그인 시도 제한, 관리자 계정 관리, 서버 하드닝</span></li>
+        <li><time>2026.11.06</time><span>오픈 전 운영 테스트 피드백 — 승인 대기를 회원 목록에서 분리, 1:1 레슨권 정수 단위, 출석 명단 보유 이용권·명단 복사</span></li>
         <li class="next"><time>예정</time><span>BE Phase 10 — k6로 초과 예약 0건·p95 실증, 미사용 차감 cron 활성화. 실기기 보류 11건 판정</span></li>
       </ol>
     </section>
@@ -366,7 +367,7 @@ onMounted(() => {
         <a :href="withBase('/highlights/deploy')">배포·운영 파이프라인</a>
         <a :href="withBase('/highlights/security')">보안 점검 후속</a>
         <a :href="withBase('/ai-workflow/')">AI 협업 워크플로</a>
-        <a href="https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/decisions.md">의사결정 기록 245건 (GitHub)</a>
+        <a href="https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/decisions.md">의사결정 기록 256건 (GitHub)</a>
       </div>
     </footer>
   </main>

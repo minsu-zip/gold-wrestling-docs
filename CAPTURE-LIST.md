@@ -1,6 +1,6 @@
 # 스크린샷 · GIF 촬영 목록
 
-사이트 홈(`Landing.vue`)과 `highlights/ui-audit.md`에 쓰는 캡처·데모 GIF 목록. 마지막 갱신 2026-11-04 (2차).
+사이트 홈(`Landing.vue`)과 `highlights/ui-audit.md`에 쓰는 캡처·데모 GIF 목록. 마지막 갱신 2026-11-08.
 
 **2026-11-04 재촬영.** 랜딩에 걸린 회원 6장·관리자 6장은 FE main(`e868920`)에서 `pnpm audit:capture -g capture`(MSW 목 데이터, 고정 시각)로 찍은 결과를 같은 파일명으로 옮겼다. DPR 1 · 모바일 360×900 원본 그대로, 데스크탑은 1280 → 720 폭으로 줄였다. 대응표:
 
@@ -12,6 +12,8 @@
 | admin-member-detail-desktop · admin-activity-desktop · admin-board-mobile | admin-member-detail-1280 · admin-activity-1280 · admin-board-360 |
 
 **2026-11-04 2차 재촬영 (캘린더 주간 뷰).** FE #89(BE D-246)로 회원 시간표·관리자 주간 보드가 캘린더 주간 뷰(날짜 숫자 머리 + 오늘 배지, 셀 안 이벤트 블록, 모바일 날짜 스트립·아젠다 행)로 바뀌어, 그 화면이 들어간 5장만 FE dev(`38444f9`, release PR #90과 같은 코드)에서 같은 하네스·같은 장면으로 다시 찍어 덮어썼다 — `schedule-mobile` · `slot-sheet-mobile` · `admin-board-mobile`(원본 360 그대로), `admin-board-desktop` · `admin-roster-desktop`(1280 → 720). `SHOTS_VERSION`은 같은 날 두 번째 교체라 `20261104-2`다. 나머지 7장은 화면 변화가 없어 그대로 둔다. 하네스 B 4종은 이번에도 실패했다(캡처 대상 아님).
+
+**2026-11-08 3차 재촬영 (출석 명단 · 관리자 내비).** FE #98(BE D-254·D-255)로 명단 패널에 보유 이용권 뱃지와 `명단 복사하기`가 생기고, FE #92(BE D-247·D-248)로 관리자 사이드바에 `사용 가이드`, 모바일 하단 탭에 `알림` · `계정 관리`가 들어가, 관리자 6장을 FE main(`27bba0c`, release PR #99)에서 같은 하네스(`pnpm audit:capture -g capture`)·같은 장면으로 다시 찍어 덮어썼다 — `admin-roster-desktop` · `admin-board-desktop` · `admin-members-desktop` · `admin-member-detail-desktop` · `admin-activity-desktop`(1280 → 720), `admin-board-mobile`(360 원본). `SHOTS_VERSION`은 `20261108`. 회원 6장은 이 기간 화면 변화가 없어 그대로 둔다. `admin-members-desktop`의 `승인 대기` 행은 MSW 기본 응답 그대로라 실서비스(D-251)와 다르다 — TODO 참고.
 
 `my-reservations-mobile` · `admin-approve-desktop`은 랜딩에서 빠졌다(예약 화면에 다가오는 예약이 합쳐졌고, 승인은 회원 목록·승인 대기 탭으로 대체). 하네스 B(서비스 워커 차단) 화면 4종 — 온보딩·승인 대기·거절·비활성 — 은 이번 실행에서 캡처에 실패했다. before/after 두 쌍은 Phase 9·10 수정의 기록이라 다시 찍지 않는다.
 

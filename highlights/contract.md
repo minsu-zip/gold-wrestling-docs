@@ -39,7 +39,7 @@ FE와 BE를 AI 세션 두 개로 병행했습니다. 두 세션이 서로의 코
 
 ## 출시 뒤에도 같은 통로로
 
-운영 QA에서 나온 BE 요청도 같은 문서와 같은 절차를 탔습니다. BE-REQ-007~015 9건이 열렸고 전부 해소됐습니다. 계약은 41경로에서 46경로로 늘었습니다.
+운영 QA에서 나온 BE 요청도 같은 문서와 같은 절차를 탔습니다. BE-REQ-007~015 9건이 열렸고 전부 해소됐습니다. 계약은 41경로에서 46경로로 늘었습니다. 오픈 직전 체육관 관리자의 운영 테스트 피드백(D-251~D-254)은 BE가 정책 문서와 계약을 먼저 바꾸고 FE가 생성 타입을 다시 만들어 따라갔습니다. 경로는 늘지 않고 기본값·필드·에러 코드만 바뀌었습니다.
 
 | 요청 | 계약 변화 | 결정 |
 | --- | --- | --- |
@@ -49,6 +49,10 @@ FE와 BE를 AI 세션 두 개로 병행했습니다. 두 세션이 서로의 코
 | 이력에서 어떤 수업인지, 누가 했는지 | 이력 행에 `classDate`·`startTime`·`actor` | D-240 |
 | 기간 변경 이력 | `GET /api/admin/members/{memberId}/pass-period-changes` | D-241 |
 | 가입 신청일과 최초 로그인 구분 | `onboardedAt` 분리, 목록 정렬 고정 | D-238, D-239 |
+| 승인 전 회원이 회원 목록에 섞임 | `GET /api/admin/members`가 `status` 생략 시 `PENDING` 제외. 페이지 크기·`totalElements`가 맞도록 FE 후처리 대신 서버 기본값으로 | D-251 |
+| 1:1 레슨권에 0.5회가 들어감 | 등록·충전·가감에서 400 `LESSON_PASS_COUNT_NOT_INTEGER` | D-252 |
+| 저녁반 출석이 왜 막혔는지 | 거부 코드를 `EVENING_ATTENDANCE_PASS_NOT_FOUND`(이용권 없음)·`EVENING_ATTENDANCE_DEDUCTION_UNAVAILABLE`(잔여 부족)로 분리 | D-253 |
+| 명단에서 회원의 보유 이용권 | 출석 명단 항목에 `passTypes` | D-254 |
 
 보안 점검으로 refresh 토큰이 쿠키로 옮겨갈 때도 응답 타입 `TokenPairResponse` → `AccessTokenResponse` 변경은 같은 경로로 전달됐습니다. BE가 스펙을 재생성해 커밋하고, FE는 생성 타입을 다시 만들어 세션 모델을 바꿨습니다 (D-229, D-234).
 
@@ -58,4 +62,4 @@ FE와 BE를 AI 세션 두 개로 병행했습니다. 두 세션이 서로의 코
 - MSW가 계약 밖 요청을 에러로 처리해 Vitest·Storybook에서 즉시 실패합니다 (D-143).
 - v1.0 회고 기준 재작업 0건.
 
-근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/decisions.md) D-017 · D-029 · D-076 · D-143 · D-148~D-150 · D-223 · D-225 · D-227 · D-238~D-241, FE `.planning/BE-CHANGE-REQUESTS.md`
+근거: [decisions.md](https://github.com/minsu-zip/gold-wrestling-be/blob/main/docs/decisions.md) D-017 · D-029 · D-076 · D-143 · D-148~D-150 · D-223 · D-225 · D-227 · D-238~D-241 · D-251~D-254, FE `.planning/BE-CHANGE-REQUESTS.md`
